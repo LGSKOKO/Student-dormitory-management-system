@@ -1,21 +1,10 @@
 package com.lgs.entity;
 
-
+//tb_super表对应的实体类
 public class Super {
 
-  private long id;//主键
   private String username;//主键 用户名/编号
   private String password;//密码
-
-
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
-
 
   public String getUsername() {
     return username;
