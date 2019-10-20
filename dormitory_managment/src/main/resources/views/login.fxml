@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane id="splitPane" fx:id="root" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.LoginC">
+   <items>
+      <Pane prefHeight="398.0" prefWidth="186.0">
+         <children>
+            <ImageView fitHeight="406.0" fitWidth="303.0" layoutX="-1.0" layoutY="-5.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/login2.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <GridPane id="anchorPane">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="24.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="46.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="0.0" prefWidth="201.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="269.0" minWidth="10.0" prefWidth="28.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="171.0" minHeight="10.0" prefHeight="167.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="137.0" minHeight="0.0" prefHeight="53.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="270.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="270.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Label id="username" layoutX="7.0" layoutY="5.0" prefHeight="18.0" prefWidth="86.0" text="Username" />
+                  <TextField fx:id="username" layoutX="7.0" layoutY="23.0" />
+               </children>
+            </Pane>
+            <SplitPane id="splitPane2" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <Label id="password" layoutX="7.0" layoutY="5.0" text="Password" />
+                  <PasswordField fx:id="password" layoutX="7.0" layoutY="19.0" />
+               </children>
+            </Pane>
+            <ImageView fitHeight="48.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../images/student_male.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="10.0" top="4.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" top="5.0" />
+               </GridPane.margin>
+               <image>
+                  <Image url="@../images/Lock_Rotation.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+               <children>
+                  <Text id="title" fill="#3a67e4" layoutX="-39.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back :)" wrappingWidth="238.00001043081284" />
+                  <Text id="content" fill="#545252" layoutX="-16.0" layoutY="101.0" lineSpacing="4.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you want to login in, you should input username &amp;passwrod" wrappingWidth="214.54684448242188" />
+               </children>
+            </Pane>
+            <Pane prefHeight="90.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <children>
+                  <JFXButton id="login" buttonType="RAISED" layoutX="-50.0" onAction="#login" text="login" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font></JFXButton>
+                  <JFXProgressBar layoutX="-66.0" layoutY="82.0" prefHeight="3.0" prefWidth="296.0" />
+                  <Text fx:id="tip" fill="#ed0707" layoutX="-15.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="179.59823894500732">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Text>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <JFXRadioButton fx:id="student" layoutX="120.0" layoutY="12.0" selected="true" style="-jfx-selected-color: #3a67e4;" text="学生">
+                  <toggleGroup>
+                     <ToggleGroup fx:id="tgType" />
+                  </toggleGroup></JFXRadioButton>
+                  <JFXRadioButton fx:id="admin" layoutX="32.0" layoutY="12.0" style="-jfx-selected-color: #3a67e4;" text="管理员" toggleGroup="$tgType" />
+               <Label fx:id="labelType" layoutX="-34.0" layoutY="8.0" prefHeight="26.0" prefWidth="68.0" text="登录类型:" />
+            </Pane>
+         </children>
+      </GridPane>
+   </items>
+</SplitPane>
