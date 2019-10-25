@@ -26,7 +26,7 @@
  className VARCHAR(10) COMMENT"班级名称",
  collegeNO VARCHAR(5) not null COMMENT"院系编号",
  PRIMARY key(classNO),
- CONSTRAINT `FK_class_college` FOREIGN KEY (`collegeNO`) REFERENCES `tb_college` (`collegeNO`)
+   CONSTRAINT `FK_class_college` FOREIGN KEY (`collegeNO`) REFERENCES `tb_college` (`collegeNO`)
  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT"班级表";
  
   #创建宿舍楼表
@@ -42,7 +42,7 @@
  create table tb_room(
  roomNO VARCHAR(5) not null COMMENT"宿舍号",
  roomName VARCHAR(10) COMMENT"宿舍名",
- count   int(2)  DEFAULT 4 COMMENT"剩余床位", 
+ count   int(4)  DEFAULT 100 COMMENT"电费余额",
  buildingNO VARCHAR(5) COMMENT"宿舍楼楼号",
  PRIMARY key(roomNO),
   CONSTRAINT `FK_room_building` FOREIGN KEY (`buildingNO`) REFERENCES `tb_building` (`buildingNO`)
@@ -68,12 +68,28 @@
  roomNO VARCHAR(5) not null COMMENT"宿舍号",
  classNO VARCHAR(5) not null COMMENT"班级编号",
  collegeNO VARCHAR(5) not null COMMENT"院系编号",
+ money int(5) comment"账号余额",
  PRIMARY key(username),
  CONSTRAINT `FK_student_building` FOREIGN KEY (`buildingNO`) REFERENCES `tb_building` (`buildingNO`),
  CONSTRAINT `FK_student_room` FOREIGN KEY (`roomNO`) REFERENCES `tb_room` (`roomNO`),
  CONSTRAINT `FK_student_class` FOREIGN KEY (`classNO`) REFERENCES `tb_class` (`classNO`),
  CONSTRAINT `FK_student_college` FOREIGN KEY (`collegeNO`) REFERENCES `tb_college` (`collegeNO`)
  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT"学生表";
+
+#创建报修表
+drop table if EXISTS tb_repair;
+create table tb_repair(
+repairNO varchar(10) not null COMMENT"报修编号",
+repairName varchar(20) not null COMMENT"报修概要",
+repairDetail varchar(150) COMMENT"报修详细信息",
+dealWith varchar(2) not null COMMENT"用来判断该报修是否已经被处理",
+roomNO VARCHAR(5) not null COMMENT"宿舍号",
+buildingNO VARCHAR(5) not null COMMENT"宿舍楼楼号",
+primary key(repairNO),
+constraint `FK_repair_room` foreign key (`roomNO`) references `tb_room` (`roomNO`),
+constraint `FK_repair_building` foreign key (`buildingNO`) references `tb_building` (`buildingNO`)
+)engine=INNODB default charset=utf8 comment"报修表";
+
  
  
  
@@ -93,28 +109,28 @@
  INSERT INTO `tb_building` VALUES ('22', '宿舍22栋');
 
  
- INSERT INTO `tb_room` VALUES ( '20102', '20栋102',4,'20');
- INSERT INTO `tb_room` VALUES ( '20103', '20栋103',4,'20');
-  INSERT INTO `tb_room` VALUES ( '20104', '20栋104',4,'20');
-  INSERT INTO `tb_room` VALUES ( '20202', '20栋202',4,'20');
- INSERT INTO `tb_room` VALUES ( '20203', '20栋203',4,'20');
-  INSERT INTO `tb_room` VALUES ( '20204', '20栋204',4,'20');
+ INSERT INTO `tb_room` VALUES ( '20102', '20栋102',100,'20');
+ INSERT INTO `tb_room` VALUES ( '20103', '20栋103',100,'20');
+  INSERT INTO `tb_room` VALUES ( '20104', '20栋104',100,'20');
+  INSERT INTO `tb_room` VALUES ( '20202', '20栋202',100,'20');
+ INSERT INTO `tb_room` VALUES ( '20203', '20栋203',100,'20');
+  INSERT INTO `tb_room` VALUES ( '20204', '20栋204',100,'20');
 
  
-  INSERT INTO `tb_room` VALUES ( '21102', '21栋102',4,'21');
- INSERT INTO `tb_room` VALUES ( '21103', '21栋103',4,'21');
-  INSERT INTO `tb_room` VALUES ( '21104', '21栋104',4,'21');
-  INSERT INTO `tb_room` VALUES ( '21202', '21栋202',4,'21');
- INSERT INTO `tb_room` VALUES ( '21203', '21栋203',4,'21');
-  INSERT INTO `tb_room` VALUES ('21204', '21栋204',4,'21');
+  INSERT INTO `tb_room` VALUES ( '21102', '21栋102',100,'21');
+ INSERT INTO `tb_room` VALUES ( '21103', '21栋103',100,'21');
+  INSERT INTO `tb_room` VALUES ( '21104', '21栋104',100,'21');
+  INSERT INTO `tb_room` VALUES ( '21202', '21栋202',100,'21');
+ INSERT INTO `tb_room` VALUES ( '21203', '21栋203',100,'21');
+  INSERT INTO `tb_room` VALUES ('21204', '21栋204',100,'21');
 
  
-  INSERT INTO `tb_room` VALUES ( '22102', '22栋102',4,'22');
- INSERT INTO `tb_room` VALUES ( '22103', '22栋103',4,'22');
-  INSERT INTO `tb_room` VALUES ( '22104', '22栋104',4,'22');
-  INSERT INTO `tb_room` VALUES ('22202', '22栋202',4,'22');
- INSERT INTO `tb_room` VALUES ( '22203', '22栋203',4,'22');
-  INSERT INTO `tb_room` VALUES ( '22204', '22栋204',4,'22');
+  INSERT INTO `tb_room` VALUES ( '22102', '22栋102',100,'22');
+ INSERT INTO `tb_room` VALUES ( '22103', '22栋103',100,'22');
+  INSERT INTO `tb_room` VALUES ( '22104', '22栋104',100,'22');
+  INSERT INTO `tb_room` VALUES ('22202', '22栋202',100,'22');
+ INSERT INTO `tb_room` VALUES ( '22203', '22栋203',100,'22');
+  INSERT INTO `tb_room` VALUES ( '22204', '22栋204',100,'22');
 
  
 INSERT INTO `tb_college` VALUES ('01', '计算机与信息工程院');
@@ -129,41 +145,41 @@ INSERT INTO `tb_class` VALUES ( '03171', '艺17级1班','03');
 INSERT INTO `tb_class` VALUES ( '03172', '艺17级2班','03');
 
 
-INSERT INTO `tb_student` VALUES ('0117101', '123456','男','20', '20102','01171','01');
-INSERT INTO `tb_student` VALUES ( '0117201', '123456','男','20', '20102','01172','01');
-INSERT INTO `tb_student` VALUES ( '0217101', '123456','男','20', '20103','02171','02');
-INSERT INTO `tb_student` VALUES ( '0217201', '123456','男','20', '20104','02172','02');
-INSERT INTO `tb_student` VALUES ( '0317101', '123456','男','20', '20104','03171','03');
+INSERT INTO `tb_student` VALUES ('0117101', '123456','男','20', '20102','01171','01',200);
+INSERT INTO `tb_student` VALUES ( '0117201', '123456','男','20', '20102','01172','01',200);
+INSERT INTO `tb_student` VALUES ( '0217101', '123456','男','20', '20103','02171','02',200);
+INSERT INTO `tb_student` VALUES ( '0217201', '123456','男','20', '20104','02172','02',200);
+INSERT INTO `tb_student` VALUES ( '0317101', '123456','男','20', '20104','03171','03',200);
 
-INSERT INTO `tb_student` VALUES ('0117102', '123456','男','20', '20102','01171','01');
-INSERT INTO `tb_student` VALUES ( '0117202', '123456','男','20', '20102','01172','01');
-INSERT INTO `tb_student` VALUES ( '0217102', '123456','男','20', '20103','02171','02');
-INSERT INTO `tb_student` VALUES ( '0217202', '123456','男','20', '20104','02172','02');
-INSERT INTO `tb_student` VALUES ( '0317102', '123456','男','20', '20104','03171','03');
+INSERT INTO `tb_student` VALUES ('0117102', '123456','男','20', '20102','01171','01',200);
+INSERT INTO `tb_student` VALUES ( '0117202', '123456','男','20', '20102','01172','01',200);
+INSERT INTO `tb_student` VALUES ( '0217102', '123456','男','20', '20103','02171','02',200);
+INSERT INTO `tb_student` VALUES ( '0217202', '123456','男','20', '20104','02172','02',200);
+INSERT INTO `tb_student` VALUES ( '0317102', '123456','男','20', '20104','03171','03',200);
 
-INSERT INTO `tb_student` VALUES ('0117103', '123456','男','21', '21102','01171','01');
-INSERT INTO `tb_student` VALUES ( '0117203', '123456','男','21', '21102','01172','01');
-INSERT INTO `tb_student` VALUES ( '0217103', '123456','男','21', '21103','02171','02');
-INSERT INTO `tb_student` VALUES ('0217203', '123456','男','21', '21104','02172','02');
-INSERT INTO `tb_student` VALUES ( '0317103', '123456','男','21', '21104','03171','03');
+INSERT INTO `tb_student` VALUES ('0117103', '123456','男','21', '21102','01171','01',200);
+INSERT INTO `tb_student` VALUES ( '0117203', '123456','男','21', '21102','01172','01',200);
+INSERT INTO `tb_student` VALUES ( '0217103', '123456','男','21', '21103','02171','02',200);
+INSERT INTO `tb_student` VALUES ('0217203', '123456','男','21', '21104','02172','02',200);
+INSERT INTO `tb_student` VALUES ( '0317103', '123456','男','21', '21104','03171','03',200);
 
-INSERT INTO `tb_student` VALUES ('0117104', '123456','男','21', '21102','01171','01');
-INSERT INTO `tb_student` VALUES ('0117204', '123456','男','21', '21102','01172','01');
-INSERT INTO `tb_student` VALUES ( '0217104', '123456','男','21', '21103','02171','02');
-INSERT INTO `tb_student` VALUES ('0217204', '123456','男','21', '21104','02172','02');
-INSERT INTO `tb_student` VALUES ( '0317104', '123456','男','21', '21104','03171','03');
+INSERT INTO `tb_student` VALUES ('0117104', '123456','男','21', '21102','01171','01',200);
+INSERT INTO `tb_student` VALUES ('0117204', '123456','男','21', '21102','01172','01',200);
+INSERT INTO `tb_student` VALUES ( '0217104', '123456','男','21', '21103','02171','02',200);
+INSERT INTO `tb_student` VALUES ('0217204', '123456','男','21', '21104','02172','02',200);
+INSERT INTO `tb_student` VALUES ( '0317104', '123456','男','21', '21104','03171','03',200);
 
-INSERT INTO `tb_student` VALUES ('0117105', '123456','男','22', '22102','01171','01');
-INSERT INTO `tb_student` VALUES ( '0117205', '123456','男','22', '22102','01172','01');
-INSERT INTO `tb_student` VALUES ( '0217105', '123456','男','22', '22103','02171','02');
-INSERT INTO `tb_student` VALUES ( '0217205', '123456','男','22', '22104','02172','02');
-INSERT INTO `tb_student` VALUES ('0317105', '123456','男','21', '22104','03171','03');
+INSERT INTO `tb_student` VALUES ('0117105', '123456','男','22', '22102','01171','01',200);
+INSERT INTO `tb_student` VALUES ( '0117205', '123456','男','22', '22102','01172','01',200);
+INSERT INTO `tb_student` VALUES ( '0217105', '123456','男','22', '22103','02171','02',200);
+INSERT INTO `tb_student` VALUES ( '0217205', '123456','男','22', '22104','02172','02',200);
+INSERT INTO `tb_student` VALUES ('0317105', '123456','男','21', '22104','03171','03',200);
 
-INSERT INTO `tb_student` VALUES ( '0117106', '123456','男','22', '22102','01171','01');
-INSERT INTO `tb_student` VALUES ( '0117206', '123456','男','22', '22102','01172','01');
-INSERT INTO `tb_student` VALUES ('0217106', '123456','男','22', '22103','02171','02');
-INSERT INTO `tb_student` VALUES ( '0217206', '123456','男','22', '22104','02172','02');
-INSERT INTO `tb_student` VALUES ( '0317106', '123456','男','22', '22104','03171','03');
+INSERT INTO `tb_student` VALUES ( '0117106', '123456','男','22', '22102','01171','01',200);
+INSERT INTO `tb_student` VALUES ( '0117206', '123456','男','22', '22102','01172','01',200);
+INSERT INTO `tb_student` VALUES ('0217106', '123456','男','22', '22103','02171','02',200);
+INSERT INTO `tb_student` VALUES ( '0217206', '123456','男','22', '22104','02172','02',200);
+INSERT INTO `tb_student` VALUES ( '0317106', '123456','男','22', '22104','03171','03',200);
 
 
 
@@ -175,3 +191,15 @@ insert into tb_admin values('admin4','123456','21');
 
 insert into tb_admin values('admin5','123456','22');
 insert into tb_admin values('admin6','123456','22');
+
+insert into tb_repair values ('2010201','厕所漏水','宿舍厕所防水已坏了','否','20102','20');
+insert into tb_repair values ('2010301','厕所漏水','宿舍厕所防水已坏了','否','20103','20');
+insert into tb_repair values ('2010401','厕所漏水','宿舍厕所防水已坏了','否','20104','20');
+
+insert into tb_repair values ('2110201','厕所漏水','宿舍厕所防水已坏了','否','21102','21');
+insert into tb_repair values ('2110301','厕所漏水','宿舍厕所防水已坏了','否','21103','21');
+insert into tb_repair values ('2110401','厕所漏水','宿舍厕所防水已坏了','否','21104','21');
+
+insert into tb_repair values ('2210201','厕所漏水','宿舍厕所防水已坏了','否','22102','22');
+insert into tb_repair values ('2210301','厕所漏水','宿舍厕所防水已坏了','否','22103','22');
+insert into tb_repair values ('2210401','厕所漏水','宿舍厕所防水已坏了','否','22104','22');
