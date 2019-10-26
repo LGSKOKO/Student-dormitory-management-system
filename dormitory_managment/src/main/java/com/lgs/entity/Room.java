@@ -5,7 +5,7 @@ public class Room {
 
   private String roomNo;//房间号
   private String roomName;//房间名
-  private long count;//当前房间剩余床位
+  private long count;//当前房间电费余额
   private String buildingNo;//所依赖的外键 宿舍楼号
   private Building building;//成员属性
 
