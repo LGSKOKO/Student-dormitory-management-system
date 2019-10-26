@@ -6,6 +6,7 @@ public class Student {
   private String username;//主键 编号/账号
   private String password;//密码
   private String sex;//性别
+  private long money;//卡内余额
   private String buildingNo;//所依赖的外键 宿舍楼号
   private String roomNo;//所依赖的外键 宿舍号
   private String classNo;//所依赖的外键 班级号
@@ -34,6 +35,13 @@ public class Student {
     this.password = password;
   }
 
+  public long getMoney() {
+    return money;
+  }
+
+  public void setMoney(long money) {
+    this.money = money;
+  }
 
   public String getSex() {
     return sex;
