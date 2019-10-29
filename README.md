@@ -10,30 +10,34 @@
 
   - #### 环境参数
 
-    - ###### JDK:1.8
-    - ###### mysql
+    - **JDK:1.8**
+    - **mysql**
 
   - #### 开发工具
 
-    -  ###### [Intellij IDEA](https://www.jetbrains.com/) 
-    - ###### [SceneBuilder](https://blog.csdn.net/qq_41998273/article/details/102397178)
-    - ###### [Navicat](https://www.navicat.com.cn/)
+    -  **[Intellij IDEA](https://www.jetbrains.com/)** 
+    - **[SceneBuilder](https://blog.csdn.net/qq_41998273/article/details/102397178)**
+    - **[Navicat](https://www.navicat.com.cn/)**
 
   - #### 技术支持
 
-    - ###### [JavaFX](https://blog.csdn.net/qq_41998273/article/details/102806303)
+    - **[JavaFX](https://blog.csdn.net/qq_41998273/article/details/102806303)**
     
-    - ###### Spring
-    - ###### Mybatis
-    - ###### Maven
+    - **Spring**
+    - **Mybatis**
+    - **Maven**
 
 ------
 
-- ## 数据库ER图
+- ### 数据库ER图
 
-  - ![数据库的ER图]( [https://github.com/LGSKOKO/Student-dormitory-management-system/blob/master/projectImg/%E6%95%B0%E6%8D%AE%E5%BA%93ER%E5%9B%BE.png](https://github.com/LGSKOKO/Student-dormitory-management-system/blob/master/projectImg/数据库ER图.png) )
+  - ![数据库的ER图](https://github.com/LGSKOKO/Student-dormitory-management-system/blob/master/projectImg/数据库ER图.png)
 
-- ## 运行图
+- ## 项目结构图
+
+  - ![项目结构总图片](https://github.com/LGSKOKO/Student-dormitory-management-system/blob/master/projectImg/项目结构总图.png)
+  
+- ### 运行图
 
   - #### 登录界面
   
