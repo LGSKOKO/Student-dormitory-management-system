@@ -31,11 +31,11 @@
 
 - ### 数据库ER图
 
-  - ![数据库的ER图](https://github.com/LGSKOKO/Student-dormitory-management-system/projectImg/数据库ER图.png)
+  - ![数据库的ER图](https://github.com/LGSKOKO/Student-dormitory-management-system/blob/master/projectImg/数据库ER图.png?raw=true)
 
 - ## 项目结构图
 
-  - ![项目结构总图片](https://github.com/LGSKOKO/Student-dormitory-management-system/projectImg/项目结构总图.png)
+  - ![项目结构总图片](https://github.com/LGSKOKO/Student-dormitory-management-system/blob/master/projectImg/项目结构总图.png?raw=true)
   
 - ### 运行图
 
