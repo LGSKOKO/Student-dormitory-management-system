@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane onMouseEntered="#init" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.supers.AdminC">
+    <children>
+        <TableView fx:id="aTable" layoutY="-2.0" prefHeight="400.0" prefWidth="420.0">
+            <columns>
+                <TableColumn fx:id="aNO" minWidth="0.0" prefWidth="73.0" text="管理员" />
+                <TableColumn fx:id="bNO" minWidth="0.0" prefWidth="58.0" text="宿舍楼号" />
+                <TableColumn fx:id="bName" minWidth="0.0" prefWidth="115.0" text="宿舍楼名" />
+                <TableColumn prefWidth="182.0" text="操作">
+                    <columns>
+                        <TableColumn fx:id="aDel" prefWidth="82.0" text="删除" />
+                        <TableColumn fx:id="aEdt" prefWidth="94.0" text="修改" />
+                    </columns>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
