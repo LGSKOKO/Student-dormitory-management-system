@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="cpw" onMouseEntered="#init" prefHeight="464.0" prefWidth="786.0" stylesheets="@../../css/student.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.student.StudentQueryC">
+    <children>
+        <TableView fx:id="sTable" layoutY="-2.0" prefHeight="464.0" prefWidth="509.0">
+            <columns>
+                <TableColumn fx:id="sNO" minWidth="0.0" prefWidth="73.0" text="学号" />
+                <TableColumn minWidth="0.0" prefWidth="259.0" text="住宿">
+                    <columns>
+                        <TableColumn fx:id="sRoom" prefWidth="101.0" text="宿舍" />
+                        <TableColumn fx:id="sBuilding" prefWidth="120.0" text="宿舍楼" />
+                    </columns>
+                </TableColumn>
+                <TableColumn prefWidth="116.0" text="信息">
+                    <columns>
+                        <TableColumn fx:id="sClass" prefWidth="103.0" text="班级" />
+                        <TableColumn fx:id="sCollege" prefWidth="108.0" text="学院" />
+                    </columns>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <JFXButton id="select_all" layoutX="545.0" layoutY="336.0" onAction="#selectAll" prefHeight="28.0" prefWidth="208.0" text="全查询" textFill="WHITE">
+            <font>
+                <Font size="13.0" />
+            </font></JFXButton>
+        <JFXButton id="room" layoutX="609.0" layoutY="113.0" onAction="#selectByBuilding" prefHeight="23.0" prefWidth="116.0" text="按宿舍楼查询" textFill="WHITE">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </JFXButton>
+      <ComboBox fx:id="studentB_select" layoutX="607.0" layoutY="80.0" prefHeight="23.0" prefWidth="120.0" />
+      <Text layoutX="555.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍楼：">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="562.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="班级：">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="565.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学院：">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="studentCl_select" layoutX="607.0" layoutY="158.0" prefHeight="23.0" prefWidth="120.0" />
+      <ComboBox fx:id="studentCo_select" layoutX="607.0" layoutY="239.0" prefHeight="23.0" prefWidth="120.0" />
+      <JFXButton id="room" layoutX="608.0" layoutY="198.0" onAction="#selectByClass" prefHeight="28.0" text="按班级查询" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton id="room" layoutX="608.0" layoutY="280.0" onAction="#selectByCollege" text="按学院查询" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXButton>
+    </children>
+</AnchorPane>
