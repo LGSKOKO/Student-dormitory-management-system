@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane onMouseEntered="#init" prefHeight="400.0" prefWidth="515.0" style="-fx-background-color: lightblue;" stylesheets="@../../css/admin.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.admin.AdminQueryC">
+    <children>
+        <TableView fx:id="aTable" layoutY="-2.0" prefHeight="400.0" prefWidth="302.0">
+            <columns>
+                <TableColumn fx:id="aNO" minWidth="0.0" prefWidth="88.0" text="管理员" />
+                <TableColumn fx:id="bNO" minWidth="0.0" prefWidth="71.0" text="宿舍楼号" />
+                <TableColumn fx:id="bName" minWidth="0.0" prefWidth="141.0" text="宿舍楼名" />
+            </columns>
+        </TableView>
+      <JFXButton id="select_all" layoutX="335.0" layoutY="204.0" onAction="#selectAll" prefHeight="23.0" prefWidth="159.0" text="查询所有" textFill="WHITE" />
+      <Text layoutX="314.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍楼:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="adminB" layoutX="360.0" layoutY="103.0" prefHeight="23.0" prefWidth="133.0" />
+      <JFXButton id="select_some" layoutX="334.0" layoutY="153.0" onAction="#selectSome" prefHeight="23.0" prefWidth="159.0" text="条件查询" textFill="WHITE" />
+    </children>
+</AnchorPane>
