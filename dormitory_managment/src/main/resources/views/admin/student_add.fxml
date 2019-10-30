@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="cpw" onMouseEntered="#addStudent_init" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/admin.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.AdminC">
+    <children>
+        <Text layoutX="63.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学生编号:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Text layoutX="65.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="初始密码:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <JFXTextField fx:id="studentNO_add" layoutX="135.0" layoutY="63.0" />
+        <JFXTextField fx:id="studentPassword_add" layoutX="135.0" layoutY="97.0" />
+        <JFXButton id="building_add" layoutX="50.0" layoutY="233.0" onAction="#student_add" prefHeight="23.0" prefWidth="220.0" text="提交" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXButton>
+        <Text layoutX="70.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍：">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <ComboBox fx:id="studentR_add" layoutX="134.0" layoutY="130.0" prefWidth="150.0" />
+      <Text layoutX="68.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学院：">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="66.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="班级：">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="studentCo_add" layoutX="134.0" layoutY="164.0" prefWidth="150.0" />
+      <ComboBox fx:id="studentCl_add" layoutX="134.0" layoutY="195.0" prefWidth="150.0" />
+    </children>
+</AnchorPane>
