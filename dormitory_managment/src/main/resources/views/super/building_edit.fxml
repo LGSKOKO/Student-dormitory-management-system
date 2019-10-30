@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="cpw" onMouseEntered="#init" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/super.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.supers.BuildingEditC">
+    <children>
+              <Text layoutX="186.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍楼号:">
+                  <font>
+                      <Font size="14.0" />
+                  </font>
+              </Text>
+              <Text layoutX="186.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍楼名:" wrappingWidth="59.3701171875">
+                  <font>
+                      <Font size="14.0" />
+                  </font>
+              </Text>
+              <JFXButton id="building_add" layoutX="175.0" layoutY="200.0" onAction="#building_edit" prefHeight="23.0" prefWidth="220.0" text="提交" textFill="WHITE">
+                  <font>
+                      <Font size="14.0" />
+                  </font>
+      </JFXButton>
+              <JFXTextField fx:id="buildingName_edit" layoutX="260.0" layoutY="156.0" />
+              <JFXTextField fx:id="buildingNO_edit" layoutX="260.0" layoutY="111.0" />
+    </children>
+</AnchorPane>
