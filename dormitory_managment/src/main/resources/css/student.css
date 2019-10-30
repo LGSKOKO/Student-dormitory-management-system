@@ -1,0 +1,64 @@
+/*因为这是个小项目 所以这里就没必要一个页面对应一个样式表了
+所以这个样式表对应的是student界面以及student目录下所有界面的样式*/
+#top{
+    -fx-background-color: linear-gradient(to right, #4b5fff, #b079ff);
+}
+#topImg{
+    -fx-border-radius: 15;
+}
+/*student包下的update_password.fxml样式*/
+#cpw{
+    -fx-background-color: linear-gradient(to bottom, #c5e3ff, #9ca8ff );
+}
+
+#cpw_edit{
+    -fx-background-color: #6178ff;
+    -fx-pref-width: 60;
+    /*设置圆角*/
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+#cpw_reset{
+    -fx-background-color: #ff1835;
+    -fx-pref-width: 60;
+    /*设置圆角*/
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+
+
+#feeQuery{
+    -fx-background-color: #6178ff;
+    -fx-pref-width: 120;
+    /*设置圆角*/
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+#feeAdd{
+    -fx-background-color: #6178ff;
+    -fx-pref-width: 120;
+    /*设置圆角*/
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+#room{
+    -fx-background-color: #6178ff;
+    -fx-pref-width: 120;
+    /*设置圆角*/
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+
+#select_some{
+    -fx-background-color: #6178ff;
+    /*设置圆角*/
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+
+#select_all{
+    -fx-background-color: #1caeff;
+    /*设置圆角*/
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
