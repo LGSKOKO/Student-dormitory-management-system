@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="cpw" onMouseEntered="#selectAdw" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/admin.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.admin.RepairC">
+    <children>
+        <TableView fx:id="rTable" layoutY="-2.0" prefHeight="400.0" prefWidth="380.0">
+            <columns>
+                <TableColumn fx:id="rNO" minWidth="0.0" text="报修编号" />
+                <TableColumn fx:id="rName" prefWidth="124.0" text="报修概述" />
+                <TableColumn fx:id="roomNO" minWidth="0.0" prefWidth="68.0" text="宿舍号" />
+                <TableColumn fx:id="rDetail" prefWidth="116.0" text="操作" />
+            </columns>
+        </TableView>
+        <TextArea fx:id="detail_information" editable="false" layoutX="380.0" layoutY="49.0" prefHeight="349.0" prefWidth="223.0" />
+        <Text layoutX="383.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="详细信息" textAlignment="CENTER" wrappingWidth="216.240234375">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>
