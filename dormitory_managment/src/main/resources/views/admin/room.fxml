@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="cpw" prefHeight="400.0" prefWidth="514.0" stylesheets="@../../css/admin.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.admin.RoomC">
+    <children>
+        <TableView fx:id="rTable" layoutY="-2.0" prefHeight="400.0" prefWidth="324.0">
+            <columns>
+                <TableColumn fx:id="rNO" minWidth="0.0" prefWidth="59.0" text="宿舍号" />
+                <TableColumn fx:id="rName" minWidth="0.0" prefWidth="89.0" text="宿舍名" />
+                <TableColumn prefWidth="159.0" text="操作">
+                    <columns>
+                        <TableColumn fx:id="rDel" prefWidth="82.0" text="删除" />
+                        <TableColumn fx:id="rEdt" prefWidth="94.0" text="修改" />
+                    </columns>
+                </TableColumn>
+            </columns>
+        </TableView>
+      <JFXButton id="room" layoutX="359.0" layoutY="182.0" onAction="#selectAll" prefHeight="23.0" prefWidth="140.0" text="全查询" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></JFXButton>
+    </children>
+
+</AnchorPane>

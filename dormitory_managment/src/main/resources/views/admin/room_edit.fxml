@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="cpw" onMouseEntered="#editRoom_init" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/admin.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.admin.RoomEditC">
+    <children>
+        <Text layoutX="169.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍编号:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Text layoutX="169.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍名称:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <JFXTextField fx:id="roomNO_edit" layoutX="248.0" layoutY="114.0" />
+        <JFXTextField fx:id="roomName_edit" layoutX="248.0" layoutY="147.0" />
+      <Text layoutX="171.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍楼：">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="roomB_edit" layoutX="246.0" layoutY="189.0" prefWidth="150.0" />
+        <JFXButton id="cpw_edit" layoutX="240.0" layoutY="232.0" onAction="#room_edit" prefHeight="23.0" prefWidth="220.0" text="提交" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXButton>
+        <JFXButton id="cpw_reset" layoutX="335.0" layoutY="232.0" onAction="#room_reset" text="重置" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXButton>
+    </children>
+</AnchorPane>
