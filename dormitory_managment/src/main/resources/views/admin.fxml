@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/super.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.AdminC">
+    <children>
+        <Pane id="top" layoutY="-1.0" prefHeight="40.0" prefWidth="600.0">
+            <children>
+                <ImageView id="topImg" fitHeight="40.0" fitWidth="50.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/admin.png" />
+                    </image>
+                </ImageView>
+                <Text fill="WHITE" fontSmoothingType="LCD" layoutX="40.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="admin" textAlignment="CENTER" wrappingWidth="55.99999761581421">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+                <JFXButton layoutX="438.0" layoutY="9.0" onAction="#update_password" prefHeight="23.0" prefWidth="70.0" style="-fx-background-color: #1f72ee;" text="修改密码" textFill="WHITE" />
+                <JFXButton layoutX="517.0" layoutY="9.0" onAction="#exist" style="-fx-background-color: red;" text="退出登录" textFill="WHITE" />
+            </children></Pane>
+        <Pane layoutY="40.0" prefHeight="362.0" prefWidth="200.0">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <children>
+                <Accordion layoutY="-1.0" prefHeight="176.0" prefWidth="202.0">
+                    <panes>
+                        <TitledPane animated="false" style="-fx-background-color: red;" text="学生管理" textFill="#212022">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <JFXButton layoutX="-1.0" layoutY="-2.0" onAction="#addStudent" prefHeight="33.0" prefWidth="202.0" text="手动添加" />
+                                        <JFXButton layoutY="31.0" onAction="#student" prefHeight="33.0" prefWidth="200.0" text="宿舍分配" />
+                                    </children></AnchorPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="宿舍管理">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton layoutX="-1.0" layoutY="-2.0" onAction="#addRoom" prefHeight="32.0" prefWidth="202.0" text="添加宿舍" textAlignment="CENTER" />
+                              <JFXButton layoutX="-1.0" layoutY="29.0" onAction="#room" prefHeight="31.0" prefWidth="202.0" text="宿舍管理" textAlignment="CENTER" />
+                           </children></AnchorPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="报修管理">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton layoutY="31.0" onAction="#adw" prefHeight="30.0" prefWidth="200.0" text="已处理" />
+                              <JFXButton layoutY="-1.0" onAction="#ndw" prefHeight="30.0" prefWidth="200.0" text="待处理" />
+                           </children></AnchorPane>
+                            </content>
+                        </TitledPane>
+                  <TitledPane animated="false" layoutX="10.0" layoutY="56.0" text="人员查询">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton layoutY="-4.0" onAction="#admin_query" prefHeight="30.0" prefWidth="200.0" text="查询管理员" textAlignment="CENTER" />
+                              <JFXButton layoutX="-8.0" layoutY="28.0" onAction="#student_query" prefHeight="31.0" prefWidth="210.0" text="查询学生" />
+                           </children></AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" prefHeight="89.0" prefWidth="202.0" text="来访登记">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </TitledPane>
+                    </panes>
+                </Accordion>
+            </children>
+        </Pane>
+        <Pane fx:id="rightPane" layoutX="200.0" layoutY="41.0" prefHeight="355.0" prefWidth="400.0" />
+    </children>
+
+</AnchorPane>
