@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="cpw" onMouseEntered="#feeInit" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/student.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.StudentC">
+   <children>
+      <Text layoutX="89.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍：">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="86.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="余额：">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="fCbb" layoutX="142.0" layoutY="116.0" prefWidth="150.0" />
+      <TextField fx:id="fOver" editable="false" layoutX="144.0" layoutY="156.0" prefHeight="23.0" prefWidth="150.0" />
+      <JFXButton fx:id="feeQuery" layoutX="153.0" layoutY="200.0" onAction="#feeQuery" prefHeight="10.0" prefWidth="55.0" text="查询余额" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
