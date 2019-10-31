@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="cpw" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/student.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgs.controller.StudentC">
+   <children>
+      <TextArea fx:id="rda" layoutX="158.0" layoutY="110.0" prefHeight="200.0" prefWidth="336.0" />
+      <TextField fx:id="rta" layoutX="158.0" layoutY="66.0" />
+      <Text layoutX="86.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="报修概述：" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="86.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="报修详情：" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <JFXButton id="cpw_edit" layoutX="191.0" layoutY="331.0" onAction="#repairAdd" text="提交" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton id="cpw_reset" layoutX="353.0" layoutY="331.0" onAction="#repairRest" text="重置" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
