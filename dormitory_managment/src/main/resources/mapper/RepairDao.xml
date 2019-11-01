@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgs.dao.RepairDao">
+    <!--结果集-->
+    <resultMap id="resultMap" type="com.lgs.entity.Repair">
+        <id property="repairNo" column="repairNO" javaType="String" />
+        <result property="repairName" column="repairName" javaType="String"/>
+        <result property="repairDetail" column="repairDetail" javaType="String"/>
+        <result property="dealWith" column="dealWith" javaType="String"/>
+        <result property="roomNo" column="roomNO" javaType="String"/>
+        <result property="buildingNo" column="buildingNO" javaType="String"/>
+        <association property="room" column="roomNO" javaType="Room"
+                     select="com.lgs.dao.RoomDao.selectByRoomNo"/>
+        <association property="building" column="buildingNO" javaType="Building"
+                     select="com.lgs.dao.BuildingDao.selectByBuildingNo"/>
+    </resultMap>
+    <!--插入-->
+    <insert id="insert" parameterType="Student">
+         insert into tb_repair(repairNO, repairName, repairDetail,dealWith,roomNO, buildingNO)
+        values (#{repairNo},#{repairName},#{repairDetail},#{dealWith},#{roomNo},#{buildingNo})
+    </insert>
+    <!--删除-->
+    <delete id="delete" parameterType="String">
+        delete from tb_repair where repairNO=#{repairNo}
+    </delete>
+    <!--更新状态-->
+    <update id="updateStatus" parameterType="String">
+         UPDATE tb_repair
+         set dealWith=#{status}
+        where repairNO=#{No}
+    </update>
+    <!--更新-->
+    <update id="update" parameterType="String">
+         UPDATE tb_repair
+         set repairNO=#{repair.repairNo}, repairName=#{repair.repairName}, repairDetail=#{repair.repairDetail},
+          dealWith=#{repair.dealWith},buildingNO=#{repair.buildingNo},roomNO=#{repair.roomNo}
+        where repairNO=#{No}
+    </update>
+    <!--根据宿舍楼查询-->
+    <select id="selectByBuildingNo" parameterType="String" resultMap="resultMap">
+        select * from tb_repair where buildingNO=#{bNo}
+    </select>
+    <!--根据宿舍查询-->
+    <select id="selectByRoomNo" parameterType="String" resultMap="resultMap">
+        select * from tb_repair where roomNO=#{rNo}
+    </select>
+    <!--查询所有-->
+    <select id="selectAll" resultMap="resultMap">
+        select * from tb_repair
+    </select>
+
+</mapper>

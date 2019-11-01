@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgs.dao.StudentDao">
+    <!--结果集-->
+    <resultMap id="resultMap" type="com.lgs.entity.Student">
+        <id property="username" column="username" javaType="String" />
+        <result property="password" column="password" javaType="String"/>
+        <result property="sex" column="sex" javaType="String"/>
+        <result property="money" column="money" javaType="Long"/>
+        <result property="roomNo" column="roomNO" javaType="String"/>
+        <result property="classNo" column="classNO" javaType="String"/>
+        <result property="buildingNo" column="buildingNO" javaType="String"/>
+        <result property="collegeNo" column="collegeNO" javaType="String"/>
+        <association property="room" column="roomNO" javaType="Room"
+                     select="com.lgs.dao.RoomDao.selectByRoomNo"/>
+        <association property="classes" column="classNO" javaType="Class"
+                     select="com.lgs.dao.ClassDao.selectByClassNo"/>
+        <association property="college" column="collegeNO" javaType="College"
+                     select="com.lgs.dao.CollegeDao.selectByCollegeNo"/>
+        <association property="building" column="buildingNO" javaType="Building"
+                     select="com.lgs.dao.BuildingDao.selectByBuildingNo"/>
+    </resultMap>
+    <!--插入-->
+    <insert id="insert" parameterType="Student">
+         insert into tb_student(username, password, sex, buildingNO, roomNO, classNO, collegeNO,money)
+        values (#{username},#{password},#{sex},#{buildingNo},#{roomNo},#{classNo},#{collegeNo},#{money})
+    </insert>
+    <!--删除-->
+    <delete id="delete" parameterType="String">
+        delete from tb_student where username=#{username}
+    </delete>
+    <!--修改密码-->
+    <update id="updatePassword" parameterType="String">
+         UPDATE tb_student
+         set password=#{password}
+        where username=#{username}
+    </update>
+    <!--修改卡内金额-->
+    <update id="updateMoney" >
+         UPDATE tb_student
+         set money=#{money}
+        where username=#{username}
+    </update>
+    <!--更新-->
+    <update id="update" parameterType="String">
+         UPDATE tb_student
+         set username=#{student.username}, password=#{student.password}, sex=#{student.sex},
+          buildingNO=#{student.buildingNo},roomNO=#{student.roomNo},
+          classNO=#{student.classNo},collegeNO=#{student.collegeNo}
+        where username=#{No}
+    </update>
+    <!--根据宿舍楼查询-->
+    <select id="selectByBuildingNo" parameterType="String" resultMap="resultMap">
+        select * from tb_student where buildingNO=#{bNo}
+    </select>
+    <!--根据宿舍查询-->
+    <select id="selectByRoomNo" parameterType="String" resultMap="resultMap">
+        select * from tb_student where roomNO=#{rNo}
+    </select>
+    <!--根据学院查询-->
+    <select id="selectByCollegeNo" parameterType="String" resultMap="resultMap">
+        select * from tb_student where collegeNO=#{coNo}
+    </select>
+    <!--根据学院查询和宿舍楼查询-->
+    <select id="selectByCONOAndBNO" parameterType="String" resultMap="resultMap">
+        select * from tb_student where collegeNO=#{CONO} AND buildingNO=#{BNO}
+    </select>
+    <!--根据班级楼查询-->
+    <select id="selectByClassNo" parameterType="String" resultMap="resultMap">
+        select * from tb_student where classNO=#{clNo}
+    </select>
+    <!--根据班级和宿舍楼查询-->
+    <select id="selectByCLNOAndBNO" parameterType="String" resultMap="resultMap">
+        select * from tb_student where classNO=#{CLNO} AND buildingNO=#{BNO}
+    </select>
+    <!--查询一条语句-->
+    <select id="selectByStudentNo" parameterType="String" resultMap="resultMap">
+        select * from tb_student where username=#{username}
+    </select>
+    <!--查询所有-->
+    <select id="selectAll" resultMap="resultMap">
+        select * from tb_student
+    </select>
+
+</mapper>

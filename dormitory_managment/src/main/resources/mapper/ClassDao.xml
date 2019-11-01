@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgs.dao.ClassDao">
+    <!--结果集-->
+    <resultMap id="resultMap" type="com.lgs.entity.Class">
+        <id property="classNo" column="classNO" javaType="String"/>
+        <result property="className" column="className" javaType="String"/>
+        <result property="collegeNo" column="collegeNO" javaType="String"/>
+        <association property="college" column="collegeNO" javaType="College"
+                     select="com.lgs.dao.CollegeDao.selectByCollegeNo"/>
+    </resultMap>
+    
+    <!--插入数据-->
+    <insert id="insert" parameterType="Class">
+        INSERT into tb_class(classNO, className,collegeNO)
+        values (#{classNo},#{className},#{collegeNo})
+    </insert>
+    <!--删除数据-->
+    <delete id="delete" parameterType="String">
+        delete from tb_class where classNO =#{classNo}
+    </delete>
+    <!--更新数据-->
+    <update id="update" parameterType="Class" >
+        update tb_class
+        set classNO =#{classNo},className=#{className},collegeNO=#{collegeNo}
+        where classNO=#{classNo}
+    </update>
+    <!--查询一条数据-->
+    <select id="selectByClassNo" parameterType="String" resultMap="resultMap">
+        select * from tb_class where classNO=#{classNo}
+    </select>
+    <!--查询所有的数据-->
+    <select id="selectAll"  resultMap="resultMap">
+        select * from tb_class
+    </select>
+</mapper>

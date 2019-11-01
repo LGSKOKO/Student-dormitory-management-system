@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgs.dao.RoomDao">
+
+    <!--结果集-->
+    <resultMap id="resultMap" type="com.lgs.entity.Room">
+        <id property="roomNo" column="roomNO" javaType="String"/>
+        <result property="roomName" column="roomName" javaType="String"/>
+        <result property="count" column="count" javaType="Long"/>
+        <result property="buildingNo" column="buildingNO" javaType="String"/>
+        <association property="building" column="buildingNO" javaType="Building"
+            select="com.lgs.dao.BuildingDao.selectByBuildingNo"/>
+    </resultMap>
+    <!--插入数据-->
+    <insert id="insert" parameterType="Room">
+        INSERT into tb_room(roomNO, roomName,count,buildingNO)
+        values (#{roomNo},#{roomName},#{count},#{buildingNo})
+    </insert>
+    <!--删除数据-->
+    <delete id="delete" parameterType="String">
+        delete from tb_room where roomNO =#{roomNo}
+    </delete>
+
+    <!--更新宿舍电费余额-->
+    <update id="updateMoney"  >
+        update tb_room
+        set count=#{room.count}
+        where roomNO=#{No}
+    </update>
+
+    <!--更新数据-->
+    <!--,count=#{count},buildingNO=#{buildingNo}-->
+    <update id="update" parameterType="Room" >
+        update tb_room
+        set roomNO =#{room.roomNo},roomName=#{room.roomName}
+        where roomNO=#{No}
+    </update>
+    <!--查询一条数据-->
+    <select id="selectByRoomNo" parameterType="String" resultMap="resultMap">
+        select * from tb_room where roomNO=#{roomNo}
+    </select>
+    <!--根据buildingNo查询宿舍-->
+    <select id="selectByBuildingNo" parameterType="String"  resultMap="resultMap">
+        select * from tb_room where buildingNO=#{buildingNo}
+    </select>
+    <!--查询所有的数据-->
+    <select id="selectAll"  resultMap="resultMap">
+        select * from tb_room
+    </select>
+</mapper>

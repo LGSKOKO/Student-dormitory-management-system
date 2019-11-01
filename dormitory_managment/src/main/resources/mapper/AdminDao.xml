@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgs.dao.AdminDao">
+    <!--结果集-->
+    <resultMap id="resultMap" type="com.lgs.entity.Admin">
+        <id property="username" column="username" javaType="String"/>
+        <result property="password" column="password" javaType="String"/>
+        <result property="buildingNo" column="buildingNO" javaType="String"/>
+        <association property="building" column="buildingNO" javaType="Building"
+                     select="com.lgs.dao.BuildingDao.selectByBuildingNo"/>
+    </resultMap>
+    <!--插入数据-->
+    <insert id="insert" parameterType="Admin">
+        INSERT into tb_admin(username, password,buildingNO)
+        values (#{username},#{password},#{buildingNo})
+    </insert>
+    <!--删除数据-->
+    <delete id="delete" parameterType="String">
+        delete from tb_admin where username =#{username}
+    </delete>
+    <!--修改密码-->
+    <update id="updatePassword" parameterType="Admin" >
+        update tb_admin
+        set password=#{password}
+        where username=#{username}
+    </update>
+    <!--更新数据-->
+    <update id="update" parameterType="Admin" >
+        update tb_admin
+        set username =#{admin.username},password=#{admin.password},buildingNO=#{admin.buildingNo}
+        where username=#{No}
+    </update>
+    <!--查询一条数据-->
+    <select id="selectByAdminNo" parameterType="String" resultMap="resultMap">
+        select * from tb_admin where username=#{username}
+    </select>
+    <!--根据宿舍楼号查询所有的数据-->
+    <select id="selectByBuildingNo" parameterType="String"  resultMap="resultMap">
+        select * from tb_admin where buildingNO=#{bNO}
+    </select>
+    <!--查询所有的数据-->
+    <select id="selectAll"  resultMap="resultMap">
+        select * from tb_admin
+    </select>
+</mapper>

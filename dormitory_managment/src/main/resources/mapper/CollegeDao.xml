@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgs.dao.CollegeDao">
+
+    <!--插入数据-->
+    <insert id="insert" parameterType="College">
+        INSERT into tb_college(collegeNO, collegeName) values (#{collegeNo},#{collegeName})
+    </insert>
+    <!--删除数据-->
+    <delete id="delete" parameterType="String">
+        delete from tb_college where collegeNO =#{collegeNo}
+    </delete>
+    <!--更新数据-->
+    <update id="update" parameterType="College" >
+        update tb_college
+        set collegeNO =#{collegeNo},collegeName=#{collegeName}
+        where collegeNO=#{collegeNo}
+    </update>
+    <!--查询一条数据-->
+    <select id="selectByCollegeNo" parameterType="String" resultType="College">
+        select * from tb_college where collegeNO=#{collegeNo}
+    </select>
+    <!--查询所有的数据-->
+    <select id="selectAll"  resultType="College">
+        select * from tb_college
+    </select>
+
+</mapper>
