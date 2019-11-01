@@ -1,19 +1,17 @@
 package com.lgs;
 
 import javafx.application.Application;
-import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Control;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import org.springframework.stereotype.Controller;
 
 
 /**
  * @author ：李先生
  * @date ：Created in 2019/10/12 21:58
- * @description： 程序入口
+ * @description：  启动程序的入口
  * @modified By：
  * @version: $ 1.0
  */
@@ -28,7 +26,9 @@ public class Main extends Application  {
         Parent root = fxmlLoader.load();
 
         primaryStage.setTitle("学生宿舍管理系统");//设置窗口标题
+        primaryStage.getIcons().add(new Image(getClass().getClassLoader().getResource("images/start.png").toString()));//设置图标
         primaryStage.setScene(new Scene(root));//添加场景
+        primaryStage.setResizable(false);//窗口不可改变高度 宽度 这样就不用调节自适应了
         primaryStage.show();//显示窗口
     }
 
