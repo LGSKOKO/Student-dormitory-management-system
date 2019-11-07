@@ -34,20 +34,20 @@
 
 - ## 项目结构图
 
-  - ![项目结构总图片](https://github.com/LGSKOKO/Student-dormitory-management-system/master/projectImg/项目结构总图.png)
+  - ![项目结构总图片](https://raw.github.com/LGSKOKO/Student-dormitory-management-system/master/projectImg/项目结构总图.png)
   
 - ## 运行图
 
   - ### 登录界面
-  - ![项目结构总图片](https://github.com/LGSKOKO/Student-dormitory-management-system/master/projectImg/login.jpg)
+  - ![项目结构总图片](https://raw.github.com/LGSKOKO/Student-dormitory-management-system/master/projectImg/login.jpg)
   
   - ### 超级管理员界面
-  - ![项目结构总图片](https://github.com/LGSKOKO/Student-dormitory-management-system/master/projectImg/super.png)
+  - ![超级管理员界面运行图](https://raw.github.com/LGSKOKO/Student-dormitory-management-system/master/projectImg/super.png)
   
   - ### 管理员界面	
-  - ![项目结构总图片](https://github.com/LGSKOKO/Student-dormitory-management-system/master/projectImg/admin.png)
+  - ![管理员界面运行图](https://raw.github.com/LGSKOKO/Student-dormitory-management-system/master/projectImg/admin.png)
   
   - ### 学生界面
-  - ![项目结构总图片](https://github.com/LGSKOKO/Student-dormitory-management-system/master/projectImg/student.png)
+  - ![学生界面运行图](https://raw.github.com/LGSKOKO/Student-dormitory-management-system/master/projectImg/student.png)
 
 
